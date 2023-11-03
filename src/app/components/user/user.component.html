@@ -1,1 +1,5 @@
-<p>user works!</p>
+<div class="w-100 px-4">
+    <img [src]="user?.avatar" [alt]="user?.last_name">
+    <p>{{ user?.first_name }} {{ user?.last_name | uppercase }}</p>
+    <app-button [button]="addButton" [user]="user"></app-button>
+</div>
