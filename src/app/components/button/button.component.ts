@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { Input, Output } from '@angular/core';
+
+import { Button } from 'src/app/interfaces/button';
 
 @Component({
   selector: 'app-button',
@@ -6,5 +9,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./button.component.css']
 })
 export class ButtonComponent {
+
+  @Input() button?: Button;
 
 }
