@@ -1,6 +1,6 @@
 
 export interface Button {
-    title: string;
-    class: string;
-    user: any;
+    title?: string;
+    class?: string;
+    user?: any;
 }

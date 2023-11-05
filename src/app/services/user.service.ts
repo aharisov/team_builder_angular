@@ -26,4 +26,9 @@ export class UserService {
 
     return this.http.get<User[]>(this.urlApi, this.httpOptions);
   }
+
+  getTeamMembers(users: User[]): User[] {
+
+    return users;
+  }
 }

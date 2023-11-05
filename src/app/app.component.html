@@ -3,8 +3,14 @@
   <h1 class="mb-4">{{ title }}</h1>
   
   <div class="w-100 d-flex justify-between">
-    <app-users></app-users>
-    <app-team class="team-wrap"></app-team>
+    
+    <div class="d-flex w-50">
+      <div *ngFor="let user of users">
+          <app-user [user]="user" (addToTeam)="addtoTeam($event)"></app-user>
+      </div>
+    </div>
+
+    <app-team [users]="team" class="team-wrap"></app-team>
   </div>
   
 </main>

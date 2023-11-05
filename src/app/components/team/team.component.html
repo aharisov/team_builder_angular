@@ -1,9 +1,9 @@
 <div class="team-inner border border-secondary rounded p-4">
     <h2 class="mb-4">My team</h2>
 
-    <div class="team-list d-flex" *ngIf="team.length > 0">
+    <div class="team-list d-flex flex-wrap" *ngIf="team.length > 0">
         <ng-container *ngFor="let member of team">
-            <app-user [user]="member"></app-user>
+            <app-user [user]="member" class="team-item"></app-user>
         </ng-container>
     </div>
 
