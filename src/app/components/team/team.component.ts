@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 
+import { User } from 'src/app/interfaces/user';
+
 @Component({
   selector: 'app-team',
   templateUrl: './team.component.html',
@@ -7,4 +9,5 @@ import { Component } from '@angular/core';
 })
 export class TeamComponent {
 
+  team: User[] = [];
 }
