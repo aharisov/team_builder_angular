@@ -10,7 +10,7 @@ import { UserService } from './services/user.service';
 })
 export class AppComponent implements OnInit {
 
-  title = 'Construct your team';
+  title = 'Créez votre equipe';
   users: User[] = [];
   team: User[] = [];
   isTeam: boolean = false;

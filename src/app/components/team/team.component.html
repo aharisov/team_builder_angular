@@ -1,5 +1,5 @@
 <div class="team-inner border border-secondary rounded p-4">
-    <h2 class="mb-4">My team</h2>
+    <h2 class="mb-4">{{ title }}</h2>
 
     <div class="team-list d-flex flex-wrap" *ngIf="team.length > 0">
         <ng-container *ngFor="let member of team">
@@ -8,6 +8,6 @@
     </div>
 
     <div class="alert alert-warning" role="alert" *ngIf="team.length == 0">
-        <h3>Your team is empty</h3>
+        <h3>{{ alertEmptyTeam }}</h3>
     </div>
 </div>

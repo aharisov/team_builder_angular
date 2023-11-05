@@ -11,6 +11,8 @@ import { UserService } from 'src/app/services/user.service';
 export class TeamComponent implements OnInit {
 
   @Input() users: User[] = [];
+  title = "Mon equipe";
+  alertEmptyTeam = "Vous n'avez pas choisi l'equipe";
   team: User[] = [];
   isMember: boolean = false;
 

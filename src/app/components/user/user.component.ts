@@ -16,18 +16,14 @@ export class UserComponent implements OnInit {
 
   addButton: Button = {};
 
-  removeButton: Button = {
-    title: 'In the team',
-    class: 'w-100 btn btn-success',
-    user: this.user
-  }
-
   ngOnInit(): void {
     
     // console.log(this.user);
     this.addButton = {
-      title: 'Add to team',
+      title: 'Ajoute dans l\'equipe',
+      titleSelected: 'Déjà dans l\'equipe',
       class: 'w-100 btn btn-primary',
+      classSelected: 'w-100 btn btn-success',
       user: this.user
     }
   }
