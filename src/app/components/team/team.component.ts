@@ -13,8 +13,10 @@ export class TeamComponent implements OnInit {
   @Input() users: User[] = [];
   title = "Mon equipe";
   alertEmptyTeam = "Vous n'avez pas choisi l'equipe";
+  alertFullTeam = "Votre equipe est complète";
   team: User[] = [];
   isMember: boolean = false;
+  isFull: boolean = false;
 
   constructor(
     private userService: UserService
@@ -27,6 +29,12 @@ export class TeamComponent implements OnInit {
 
   getTeamMembers(users: User[]): void {
 
-    this.team = this.userService.getTeamMembers(users);
+    if (this.team.length > 6) {
+
+      this.isFull = true;
+    } else {
+      
+      this.team = this.userService.getTeamMembers(users);
+    }
   }
 }

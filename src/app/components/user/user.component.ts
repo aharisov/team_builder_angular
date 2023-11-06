@@ -12,12 +12,12 @@ import { Button } from 'src/app/interfaces/button';
 export class UserComponent implements OnInit {
 
   @Input() user?: User;
-  @Input() inTeam?: boolean;
+  @Input() inTeam: boolean = false;
+  @Input() isTeamFull: boolean = false;
   @Output() addToTeam = new EventEmitter<User>();
   @Output() removeFromTeam = new EventEmitter<User>();
 
   isSelected: boolean = false;
-  isInTeam: boolean = false;
   addButton: Button = {};
 
   ngOnInit(): void {
@@ -36,10 +36,14 @@ export class UserComponent implements OnInit {
 
   addNewUser(user: User): void {
 
-    // this.newEvent.emit(user);
-    console.log('clicked', this.addButton);
-    this.isSelected = true;
-    this.addToTeam.emit(user);
+    if (!this.isTeamFull) {
+      
+      this.isSelected = true;
+      this.addToTeam.emit(user);
+    } else {
+      
+      this.isSelected = false;
+    }
   }
 
   removeUser(user: User) {

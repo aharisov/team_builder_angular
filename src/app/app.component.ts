@@ -12,9 +12,11 @@ import { Button } from './interfaces/button';
 export class AppComponent implements OnInit {
 
   title = 'Créez votre equipe';
+  alertFullTeam = "Votre equipe est complète";
   users: User[] = [];
   team: User[] = [];
   isTeam: boolean = false;
+  isTeamFull: boolean = false;
 
   constructor(
     private userService: UserService
@@ -43,7 +45,16 @@ export class AppComponent implements OnInit {
 
   addtoTeam(user: User) {
 
-    this.team.push(user);
+    console.log('before', this.team.length);
+    if (this.team.length <= 5) {
+      
+      this.team.push(user);
+    }
+
+    if (this.team.length == 6) {
+      this.isTeamFull = true;
+    }
+    console.log('after', this.team.length);
   }
 
 
