@@ -7,23 +7,32 @@
     <div>
 
       <div class="d-flex w-100">
+        <!-- show users list -->
         <div *ngFor="let user of users">
+            <!-- 
+              invoke user component 
+              pass current user, 
+              boolean if team is full or not,
+              get add to team method
+            -->
             <app-user [user]="user" [isTeamFull]="isTeamFull" (addToTeam)="addtoTeam($event)"></app-user>
         </div>
       </div>
 
+      <!-- show alert if team is full -->
       <div class="alert alert-danger mt-4 text-center" role="alert" *ngIf="isTeamFull">
           <h3>{{ alertFullTeam }}</h3>
       </div>
 
+      <!-- show button for getting new users -->
       <button type="button" [ngClass]="refreshButton.class" (click)="showUsers()" *ngIf="!isTeamFull">
         {{ refreshButton.title }}
       </button>
       
     </div>
 
+    <!-- show team and pass team users -->
     <app-team [users]="team" class="team-wrap"></app-team>
   </div>
-  
-  
+
 </main>

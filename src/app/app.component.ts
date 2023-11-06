@@ -13,15 +13,19 @@ export class AppComponent implements OnInit {
 
   title = 'Créez votre equipe';
   alertFullTeam = "Votre equipe est complète";
+  // for stocking users
   users: User[] = [];
+  // for stocking team memebers
   team: User[] = [];
-  isTeam: boolean = false;
+  // for stocking team state
   isTeamFull: boolean = false;
 
   constructor(
+    // use user service
     private userService: UserService
   ) {}
 
+  // add button for getting new users
   refreshButton = {
     title: 'Autres l\'utilisateurs',
     class: 'w-100 mt-4 btn btn-info'
@@ -29,9 +33,11 @@ export class AppComponent implements OnInit {
 
   ngOnInit(): void {
     
+    // show users on component init
     this.showUsers();
   }
 
+  // method for showing users
   showUsers(): void {
 
     this.userService.getUsers().subscribe(
@@ -43,18 +49,19 @@ export class AppComponent implements OnInit {
     
   }
 
+  // method for adding users to team
   addtoTeam(user: User) {
 
-    console.log('before', this.team.length);
+    // add to team while it's not full
     if (this.team.length <= 5) {
       
       this.team.push(user);
     }
 
+    // set team to full
     if (this.team.length == 6) {
       this.isTeamFull = true;
     }
-    console.log('after', this.team.length);
   }
 
 

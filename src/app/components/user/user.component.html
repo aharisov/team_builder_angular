@@ -1,7 +1,10 @@
 <div class="w-100 px-4">
+    <!-- show avatar -->
     <img [src]="user?.avatar" [alt]="user?.last_name" class="w-100">
+    <!-- show user name and last name -->
     <p>{{ user?.first_name }} {{ user?.last_name | uppercase }}</p>
     
+    <!-- show button for adding to team or removing from team -->
     <button type="button" 
         [ngClass]="inTeam ? addButton.classToRemove : (isSelected ? addButton.classSelected : addButton.class)" 
         (click)="inTeam ? removeUser(addButton.user) : addNewUser(addButton.user)"

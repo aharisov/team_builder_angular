@@ -11,9 +11,11 @@ import { Button } from 'src/app/interfaces/button';
 })
 export class UserComponent implements OnInit {
 
+  // input data from parent component
   @Input() user?: User;
   @Input() inTeam: boolean = false;
   @Input() isTeamFull: boolean = false;
+  // return data to parent component
   @Output() addToTeam = new EventEmitter<User>();
   @Output() removeFromTeam = new EventEmitter<User>();
 
@@ -22,7 +24,7 @@ export class UserComponent implements OnInit {
 
   ngOnInit(): void {
     
-    // console.log(this.user);
+    // button data for adding user to team or remove from team
     this.addButton = {
       title: 'Ajoutez dans l\'equipe',
       titleSelected: 'Déjà dans l\'equipe',
@@ -34,8 +36,10 @@ export class UserComponent implements OnInit {
     }
   }
 
+  // method for adding user to team
   addNewUser(user: User): void {
 
+    // add to team while team is not full
     if (!this.isTeamFull) {
       
       this.isSelected = true;
@@ -46,6 +50,7 @@ export class UserComponent implements OnInit {
     }
   }
 
+  // method for removing user from team
   removeUser(user: User) {
 
     this.removeFromTeam.emit(user);

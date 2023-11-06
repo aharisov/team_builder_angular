@@ -1,12 +1,14 @@
 <div class="team-inner border border-secondary rounded p-4">
     <h2 class="mb-4">{{ title }}</h2>
 
+    <!-- show team users if there are -->
     <div class="team-list d-flex flex-wrap" *ngIf="team.length > 0">
         <ng-container *ngFor="let member of team">
             <app-user [user]="member" [inTeam]="true" class="team-item"></app-user>
         </ng-container>
     </div>
 
+    <!-- show alert if team is empty -->
     <div class="alert alert-warning" role="alert" *ngIf="team.length == 0">
         <h3>{{ alertEmptyTeam }}</h3>
     </div>
