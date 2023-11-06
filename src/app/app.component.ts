@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { User } from './interfaces/user';
 import { UserService } from './services/user.service';
+import { Button } from './interfaces/button';
 
 @Component({
   selector: 'app-root',
@@ -18,6 +19,11 @@ export class AppComponent implements OnInit {
   constructor(
     private userService: UserService
   ) {}
+
+  refreshButton = {
+    title: 'Autres l\'utilisateurs',
+    class: 'w-100 mt-4 btn btn-info'
+  }
 
   ngOnInit(): void {
     
