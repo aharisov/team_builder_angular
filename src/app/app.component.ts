@@ -11,12 +11,16 @@ import { Button } from './interfaces/button';
 })
 export class AppComponent implements OnInit {
 
+  // component title
   title = 'Créez votre equipe';
+  // text for alert
   alertFullTeam = "Votre equipe est complète";
   // for stocking users
   users: User[] = [];
   // for stocking team memebers
   team: User[] = [];
+  // user removed from team
+  removedUser?: User;
   // for stocking team state
   isTeamFull: boolean = false;
 
@@ -26,7 +30,7 @@ export class AppComponent implements OnInit {
   ) {}
 
   // add button for getting new users
-  refreshButton = {
+  refreshButton: Button = {
     title: 'Autres l\'utilisateurs',
     class: 'w-100 mt-4 btn btn-info'
   }
@@ -50,8 +54,10 @@ export class AppComponent implements OnInit {
   }
 
   // method for adding users to team
-  addtoTeam(user: User) {
+  addToTeam(user: User) {
 
+    // console.log('added to team', this.team);
+    
     // add to team while it's not full
     if (this.team.length <= 5) {
       
@@ -60,9 +66,25 @@ export class AppComponent implements OnInit {
 
     // set team to full
     if (this.team.length == 6) {
+      
       this.isTeamFull = true;
     }
   }
 
+  // method for getting removed user from team
+  getRemovedFromTeam(user: User) {
 
+    // console.log('deleted', user);
+    
+    // remove user from team array
+    this.team = this.team.filter(el => el.id != user.id);
+    this.removedUser = user;
+
+    if (this.team.length < 6) {
+      
+      // reset team state
+      this.isTeamFull = false;
+    }
+    // console.log('length', this.team);
+  }
 }

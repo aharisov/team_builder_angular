@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, OnChanges, SimpleChanges } from '@angular/core';
 
 import { User } from 'src/app/interfaces/user';
 import { UserService } from 'src/app/services/user.service';
@@ -8,10 +8,14 @@ import { UserService } from 'src/app/services/user.service';
   templateUrl: './team.component.html',
   styleUrls: ['./team.component.css']
 })
-export class TeamComponent implements OnInit {
+export class TeamComponent implements OnInit, OnChanges {
 
   // get data from parent component
   @Input() users: User[] = [];
+  // send data to parent
+  @Output() getRemovedUser = new EventEmitter<User>();
+
+  // component title
   title = "Mon equipe";
   // variables for stocking alerts
   alertEmptyTeam = "Vous n'avez pas choisi l'equipe";
@@ -24,6 +28,13 @@ export class TeamComponent implements OnInit {
     private userService: UserService
   ) {}
 
+  // update component on changes
+  ngOnChanges(changes: SimpleChanges): void {
+      
+    // console.log('changes', changes);
+    this.getTeamMembers(this.users);
+  }
+
   ngOnInit(): void {
 
     // invoke method on component init
@@ -34,5 +45,13 @@ export class TeamComponent implements OnInit {
   getTeamMembers(users: User[]): void {
 
     this.team = this.userService.getTeamMembers(users);
+  }
+
+  // method for removing member from team
+  removeFromTeam(member: User): void {
+    
+    this.team = this.team.filter(user => user.id != member.id);
+
+    this.getRemovedUser.emit(member);
   }
 }

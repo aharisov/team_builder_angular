@@ -15,7 +15,12 @@
               boolean if team is full or not,
               get add to team method
             -->
-            <app-user [user]="user" [isTeamFull]="isTeamFull" (addToTeam)="addtoTeam($event)"></app-user>
+            <app-user 
+              [user]="user" 
+              [isTeamFull]="isTeamFull" 
+              [removedFromTeam]="removedUser"
+              (addToTeam)="addToTeam($event)"
+            ></app-user>
         </div>
       </div>
 
@@ -32,7 +37,7 @@
     </div>
 
     <!-- show team and pass team users -->
-    <app-team [users]="team" class="team-wrap"></app-team>
+    <app-team [users]="team" (getRemovedUser)="getRemovedFromTeam($event)" class="team-wrap"></app-team>
   </div>
 
 </main>
