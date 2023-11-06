@@ -7,24 +7,14 @@
     <!-- show button for adding to team or removing from team -->
     <button type="button" 
         [ngClass]="inTeam ? addButton.classToRemove : (isSelected ? addButton.classSelected : addButton.class)" 
-        (click)="inTeam ? removeUser(addButton.user) : addNewUser(addButton.user)"
+        (click)="inTeam ? removeUser(user) : addNewUser(addButton.user)"
         [disabled]="(isSelected && !inTeam) || isTeamFull"
-        *ngIf="user != removedFromTeam"
-    >
-        {{ inTeam ? addButton.titleInTeam : (isSelected ? addButton.titleSelected : addButton.title) }}
-    </button>
-
-    <!-- show this button when user removed from team -->
-    <button type="button" 
-        [ngClass]="inTeam ? addButton.classToRemove : (isSelected ? addButton.classSelected : addButton.class)" 
-        (click)="inTeam ? removeUser(addButton.user) : addNewUser(addButton.user)"
-        [disabled]="(isSelected && !inTeam) || isTeamFull"
-        *ngIf="user == removedFromTeam"
     >
         {{ inTeam ? addButton.titleInTeam : (isSelected ? addButton.titleSelected : addButton.title) }}
     </button>
 
     <!-- <p>removed - {{ user?.id === removedFromTeam?.id }}</p>
     <p>in team - {{ inTeam }}</p>
-    <p>selected - {{ isSelected }}</p> -->
+    <p>selected - {{ isSelected }}</p>
+    <p>user - {{ user?.id }}</p> -->
 </div>

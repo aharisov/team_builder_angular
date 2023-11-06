@@ -39,6 +39,8 @@ export class UserComponent implements OnInit, OnChanges {
 
   ngOnChanges(changes: SimpleChanges): void {
       
+    console.log(changes);
+    
     // on every change check if the user is removed from team
     if (this.removedFromTeam) {
       
@@ -48,6 +50,8 @@ export class UserComponent implements OnInit, OnChanges {
 
   // method for adding user to team
   addNewUser(user?: User): void {
+
+    console.log('added', user)
 
     // add to team while team is not full
     if (!this.isTeamFull) {
@@ -63,7 +67,7 @@ export class UserComponent implements OnInit, OnChanges {
   }
 
   // method for removing user from team
-  removeUser(user: User) {
+  removeUser(user?: User) {
 
     this.removeFromTeam.emit(user);
   }
@@ -71,6 +75,8 @@ export class UserComponent implements OnInit, OnChanges {
   // check if this user removed from team
   checkRemoved(removedUser?: User): void {
 
+    console.log('removed', this.user, removedUser);
+    
     if (removedUser?.id == this.user?.id) {
 
       // restore state of booleans
