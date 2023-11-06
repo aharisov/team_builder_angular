@@ -3,7 +3,7 @@
 
     <div class="team-list d-flex flex-wrap" *ngIf="team.length > 0">
         <ng-container *ngFor="let member of team">
-            <app-user [user]="member" class="team-item"></app-user>
+            <app-user [user]="member" [inTeam]="true" class="team-item"></app-user>
         </ng-container>
     </div>
 
