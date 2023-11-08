@@ -1,27 +1,72 @@
-# TeamBuilder
+# Le projet pédagogique : "Team Builder"
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.7.
+## Les caractéristiques
 
-## Development server
+- une liste de l'utilisateurs reçu via API `https://random-data-api.com/` ;
+- il est possible d'ajouter l'utilisateur vers l'equipe ;
+- il est possible de suppromer l'utilisateur de l'equipe ;
+- il est possible de changer de la list de l'utilisateurs ;
+- des differents alertes.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Utilisation
 
-## Code scaffolding
+Afin d'exécuter ce projet localement il faut :
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+- installer toutes les dependances à la racine du projet
 
-## Build
+```bash
+    npm install
+```
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+- démarrer le serveur et aller sur l'url `http://localhost:4200/`
 
-## Running unit tests
+```bash
+    ng serve
+```
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## La Stack Technique
 
-## Running end-to-end tests
+**Client :** Angular, HTML5, CSS3
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+## Screenshots
+### --------------------- Une liste de l'utilisateurs / Users list ---------------------
+![Screenshot](screenshots/users_list.png)
+### --------------------- Une l'equipe vide / Empty team ---------------------
+![Screenshot](screenshots/team_empty.png)
+### --------------------- Une l'equipe avec l'utilisateurs / The team with users ---------------------
+![Screenshot](screenshots/added_users.png)
+### --------------------- L'equipe est complète / Team fullfilled ---------------------
+![Screenshot](screenshots/team_full.png)
 
-## Further help
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+### --------------------- English version ---------------------
+
+# The educational project: “Team Builder”
+
+## Characteristics
+
+- a list of users received via API `https://random-data-api.com/`;
+- it is possible to add the user to the team;
+- it is possible to remove the user from the team;
+- it is possible to change the user list;
+- different alerts.
+
+## Hot to use
+
+In order to execute this project locally you must:
+
+- install all dependencies at the root of the project and navigate to `http://localhost:4200/`
+
+```bash
+     npm install
+```
+
+- start the server
+
+```bash
+     ng serve
+```
+
+## Tech Stack
+
+**Client:** Angular, HTML5, CSS3
