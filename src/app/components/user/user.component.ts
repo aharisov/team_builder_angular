@@ -39,7 +39,7 @@ export class UserComponent implements OnInit, OnChanges {
 
   ngOnChanges(changes: SimpleChanges): void {
       
-    console.log(changes);
+    // console.log(changes);
     
     // on every change check if the user is removed from team
     if (this.removedFromTeam) {
@@ -74,8 +74,6 @@ export class UserComponent implements OnInit, OnChanges {
 
   // check if this user removed from team
   checkRemoved(removedUser?: User): void {
-
-    console.log('removed', this.user, removedUser);
     
     if (removedUser?.id == this.user?.id) {
 

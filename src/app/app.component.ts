@@ -73,8 +73,6 @@ export class AppComponent implements OnInit {
 
   // method for getting removed user from team
   getRemovedFromTeam(user: User) {
-
-    // console.log('deleted', user);
     
     // remove user from team array
     this.team = this.team.filter(el => el.id != user.id);
@@ -85,6 +83,5 @@ export class AppComponent implements OnInit {
       // reset team state
       this.isTeamFull = false;
     }
-    // console.log('length', this.team);
   }
 }
